@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:          #0b0f1a;
+  --surface:     #111827;
+  --card:        #141d2e;
+  --card-hover:  #182236;
+  --border:      #1e2d45;
+  --border-bright: #2a3f5e;
+  --navy:        #0d1b2e;
+  --navy-light:  #162033;
+  --accent:      #f5c518;
+  --accent-dim:  #c49d10;
+  --accent-glow: rgba(245,197,24,0.15);
+  --blue:        #3b82f6;
+  --blue-dim:    #1d4ed8;
+  --blue-glow:   rgba(59,130,246,0.12);
+  --green:       #22c55e;
+  --red:         #ef4444;
+  --muted:       #4a6080;
+  --text:        #e8edf5;
+  --text-dim:    #8899b4;
+  --text-faint:  #4a6080;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ── Skeleton shimmer ── */
+.skeleton {
+  background: linear-gradient(90deg, #1a2540 25%, #243054 50%, #1a2540 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Selection ── */
+::selection { background: rgba(245,197,24,0.2); color: var(--text); }
+
+/* ── IMDb-style star ── */
+.imdb-star { color: var(--accent); filter: drop-shadow(0 0 6px rgba(245,197,24,0.5)); }
+
+/* ── Glow effects ── */
+.glow-yellow { box-shadow: 0 0 20px rgba(245,197,24,0.2), 0 0 40px rgba(245,197,24,0.08); }
+.glow-blue   { box-shadow: 0 0 20px rgba(59,130,246,0.25), 0 0 40px rgba(59,130,246,0.08); }
+
+/* ── Noise texture overlay ── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ── Card hover lift ── */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-bright);
+}
+
+/* ── Pill badge ── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Rating ring animation ── */
+@keyframes ring-fill {
+  from { stroke-dashoffset: 283; }
+  to   { stroke-dashoffset: var(--offset); }
+}
+.rating-ring { animation: ring-fill 1s ease-out forwards; }
+
+/* ── Tab underline ── */
+.tab-active {
+  position: relative;
+}
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
+}
+
+/* ── Poster shimmer reveal ── */
+@keyframes poster-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+.poster-reveal { animation: poster-reveal 0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
