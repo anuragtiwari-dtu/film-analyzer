@@ -15,7 +15,7 @@ export default function CastList({ actors, plot }: CastListProps) {
   const [plotExpanded, setPlotExpanded] = useState(false);
 
   // ✅ SAFE plot handling
-  const isLongPlot = plot?.length > 220;
+  const isLongPlot = (plot?.length ?? 0) > 220;;
 
   const displayPlot =
     plotExpanded || !isLongPlot
