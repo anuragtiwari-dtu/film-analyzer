@@ -4,7 +4,7 @@ A **production-ready full-stack Next.js application** that analyzes any movie us
 The app fetches **real audience reviews** and uses **Google Gemini AI** to generate intelligent **sentiment summaries and key themes** from viewer feedback.
 
 🌐 **Live Demo:**
-https://ai-movie-insight-builder-sage.vercel.app/
+https://film-analyzer-pearl.vercel.app/
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
@@ -37,7 +37,7 @@ https://ai-movie-insight-builder-sage.vercel.app/
 
 ### 🎯 IMDb ID Input
 
-Users can enter a valid IMDb movie ID to instantly fetch film analysis. Example shortcuts allow quick testing.
+Users can enter a valid movie name or IMDb movie ID to instantly fetch film analysis. Example shortcuts allow quick testing.
 
 ### 🎥 Movie Details
 
@@ -148,8 +148,8 @@ This project demonstrates:
 ## 1️⃣ Clone the repository
 
 ```
-git clone https://github.com/43vaibhav/ai-movie-insight-builder.git
-cd ai-movie-insight-builder
+git https://github.com/anuragtiwari-dtu/film-analyzer
+cd ai-film-analyzer
 ```
 
 ---
@@ -245,7 +245,7 @@ This project is deployed on **Vercel**.
 
 Live application:
 
-https://ai-movie-insight-builder-sage.vercel.app/
+https://film-analyzer-pearl.vercel.app/
 
 ---
 
